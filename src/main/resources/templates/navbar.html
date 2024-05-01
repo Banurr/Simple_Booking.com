@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+  <a class="navbar-brand ms-2" th:href="${'/'}"><b>BOOKING.COM</b></a>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" th:href="${'/'}" th:text="${'Home'}"></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" th:href="${'/apartments'}">Apartments</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0 w-50" th:action="${'/search'}" method="post">
+      <input class="form-control sm-5 w-50 mr-2"  placeholder="Search" name="pattern" minlength="1" required>
+      <button type="submit" class="btn btn-success">Search</button>
+    </form>
+  </div>
+</nav>

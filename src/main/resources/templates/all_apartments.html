@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main.html" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div layout:fragment="content">
+    <div style="display:grid;grid-template-columns: repeat(4,1fr);grid-gap: 10px 15px;grid-auto-flow: row;margin: 60px auto 0 auto;justify-content: center;width: 67%">
+        <div class="col-12" th:each="apartment : ${apartments}">
+            <a th:href="${'/apartments/'+apartment.id}" style="text-decoration: none">
+                <div class="card" style="color: black;height: 350px;width: 300px">
+                    <h3 th:text="${apartment.title}" style="text-align: center;margin-top: 5px"></h3>
+                    <img th:unless="${apartment.pictures.size() == 0 || apartment.pictures == null}" class="card-img-top" th:src="${'/images/'+apartment.pictures[0].id}" alt="..." width="70" height="200">
+                    <div class="card-body p-3">
+                        <div class="text-center">
+                            <p th:text="${'Address : ' + apartment.address}"></p>
+                            <button class="btn btn-primary" th:text="${apartment.price+'$'}"></button>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</html>

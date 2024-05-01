@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main.html" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div layout:fragment="content">
+  <div class="jumbotron w-100" style="margin: auto auto;">
+    <h1 th:text="${apartment.title}" style="font-size: 60px;margin-top: -30px"></h1>
+    <h3 th:text="${'Address : ' + apartment.address}"></h3>
+    <h4 th:text="${'Area : ' + apartment.area + ' m^2'}"></h4>
+    <hr class="my-4">
+    <div id="carouselExample" class="carousel slide" th:unless="${apartment.pictures.size() == 0 || apartment.pictures == null}" style="width : 700px;height:500px;border : 1px solid black">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img th:src="${'/images/'+apartment.pictures[0].id}" style="width : 700px;height : 500px">
+        </div>
+        <div class="carousel-item" th:if="${apartment.pictures.size()>1}" th:each="index : ${#numbers.sequence(1,#lists.size(apartment.pictures)-1)}">
+          <img th:src="${'/images/'+apartment.pictures[index].id}" style="width : 700px;height : 500px">
+        </div>
+          <div class="carousel-item" th:if="${apartment.pictures.size()==1}">
+              <img th:src="${'/images/'+apartment.pictures[0].id}" style="width : 700px;height : 500px">
+          </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" th:if="${apartment.pictures.size()>1}">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden" >Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" th:if="${apartment.pictures.size()>1}">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <button class="btn btn-lg btn-success mt-2" th:text="${apartment.price+'$'}" style="cursor: not-allowed;pointer-events: none"></button>
+  </div>
+</div>
+</html>

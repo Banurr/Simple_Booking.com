@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org" layout:decorate="layout/main.html" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<div layout:fragment="content">
+    <div class="modal-body" style="width: 400px;margin: 50px auto 0 auto ">
+        <div class="input-group mb-3">
+            <input type="file" class="form-control" id="image" required accept="image/*">
+        </div>
+        <div class="input-group">
+            <select class="form-select" id="apartment" aria-label="Example select with button addon">
+                <option th:each="apartment : ${apartments}" th:value="${apartment.id}" th:text="${apartment.title}"></option>
+            </select>
+        </div>
+        <div class="modal-footer" style="margin-top: 10px">
+            <button class="btn btn-primary" onclick="setPhoto()">SUBMIT</button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function setPhoto()
+        {
+            let id = document.getElementById('apartment').value;
+            let fileInput = document.getElementById('image');
+            let file = fileInput.files[0];
+            let formData = new FormData();
+            formData.append("file", file);
+            $.ajax({
+                type: 'POST',
+                url: '/images/'+id,
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response)
+                {
+
+                }
+            })
+        }
+    </script>
+</div>
+
+</html>
