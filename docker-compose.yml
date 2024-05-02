@@ -1,6 +1,6 @@
 services:
     backend:
-        image: 'midterm'
+        image: 'banurr/midterm'
         container_name: 'midterm_back'
         depends_on:
             - database
