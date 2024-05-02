@@ -35,6 +35,11 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 }
 
+bootJar {
+	archiveFileName = "midterm.jar" // Specify the name of the JAR file
+	mainClassName = 'cloud.midterm.MidtermApplication' // Replace with your main class
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
