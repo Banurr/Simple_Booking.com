@@ -37,6 +37,10 @@ springBoot {
 	mainClass = 'cloud.midterm.MidtermApplication' // Replace with your main class
 }
 
+bootJar {
+	archiveFileName = "midterm.jar" // Specify the name of the JAR file
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
