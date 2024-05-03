@@ -24,6 +24,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo docker build -t banurr/midterm .
 ```
 
+## Docker login
+```
+sudo docker login
+```
+
 ## Push it to the Dockerhub repo
 ```
 sudo docker push banurr/midterm
