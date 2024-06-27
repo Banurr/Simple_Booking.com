@@ -1,3 +1,33 @@
+# Booking.com Clone
+
+## Description
+Booking.com Clone is a project demonstrating skills in web development and DevOps, specifically focusing on building a simplified version of the Booking.com platform. It utilizes Spring Boot for backend development, PostgreSQL for data persistence, and Docker for containerization to facilitate easy deployment and scaling.
+
+## Features
+- **User Authentication:** Secure user registration and login.
+- **Accommodation Listings:** List various accommodations available for booking.
+- **Search and Filtering:** Search for accommodations based on location, date, and other criteria.
+- **Booking Management:** Enable users to book accommodations and manage their bookings.
+- **Admin Dashboard:** Admin panel for managing accommodations, users, and bookings.
+- **DevOps Focus:**
+  - **Docker Containerization:** Use Docker to containerize the application components.
+  - **Docker Compose:** Define and manage multi-container Docker applications with Docker Compose.
+  - **PostgreSQL Integration:** Store application data in a PostgreSQL database.
+  
+## Technologies Used
+- Spring Boot
+- PostgreSQL
+- Docker
+- Docker Compose
+
+## Installation Instructions
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/yourusername/booking.com-clone.git
+   cd booking.com-clone
+
+
+
 # Commands
 
 ## Updating packages
